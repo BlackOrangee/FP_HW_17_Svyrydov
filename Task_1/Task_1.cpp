@@ -13,8 +13,6 @@ int main()
 {
 	int day_1, month_1, year_1, day_2, month_2, year_2, first_data_days = 0, second_data_days = 0;
 
-	
-
 	const int SIZE_MONTHS = 12;
 	int months[SIZE_MONTHS] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 };
 
