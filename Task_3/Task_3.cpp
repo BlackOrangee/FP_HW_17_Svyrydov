@@ -5,7 +5,7 @@
 using namespace std;
 
 int DeterminateNumber(int arr[], int SIZE, int menu, int positive, int zero, int negative, int i);
-void OutputArray(int arr[], int SIZE);
+void OutputArray(int arr[], int SIZE, int i); //Output array
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
 	int arr[SIZE] = { 5, 3, -2, 0, -4, 6, 0, -9, 4, 10 };
 
 	cout << "\n\n\t";
-	OutputArray(arr, SIZE);
+	OutputArray(arr, SIZE, 0);
 
 	while (true)
 	{	//User menu
