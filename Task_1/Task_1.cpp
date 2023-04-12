@@ -72,27 +72,22 @@ void LeapYears(int leap[], int SIZE_LEAP, int year_1, int year_2, int month_1, i
 	if (leap[0] > year_2)
 	{
 		leap[0]--;
-		goto exit;
+		//If the start date of a leap year is greater than February 29, then subtract 1 from the number of leap years
+		if ((year_1 % 4 == 0 && leap[0] % 100 != 0 || leap[0] % 400 == 0) && month_1 > 2)
+		{
+			leap[1] = leap[1] - 1;
+		}
+		//If the end date is before February 29, then subtract 1 from high years
+		if ((year_2 % 4 == 0 && leap[0] % 100 != 0 || leap[0] % 400 == 0) && day_2 <= 29 && month_2 < 3)
+		{
+			leap[1] = leap[1] - 1;
+		}
+		return;
 	}
 	if (leap[0] % 4 == 0 && leap[0] % 100 != 0 || leap[0] % 400 == 0)
 	{
 		leap[1] = leap[1] + 1;
 	}
-
 	leap[0]++;
-	
 	LeapYears(leap, SIZE_LEAP, year_1, year_2, month_1, month_2, day_2);
-
-	exit:
-	//If the start date of a leap year is greater than February 29, then subtract 1 from the number of leap years
-	if ((year_1 % 4 == 0 && leap[0] % 100 != 0 || leap[0] % 400 == 0) && month_1 > 2)
-	{
-		leap[1] = leap[1] - 1;
-	}
-
-	//If the end date is before February 29, then subtract 1 from high years
-	if ((year_2 % 4 == 0 && leap[0] % 100 != 0 || leap[0] % 400 == 0) && day_2 <= 29 && month_2 < 3)
-	{
-		leap[1] = leap[1] - 1;
-	}
 }
